@@ -1,0 +1,27 @@
+Data File
+
+Download the payroll.csv Download payroll.csv file and place it in your C# program. The structure of the data in the file is as follows:
+
+first_name,last_name,hours_worked,pay_rate
+
+
+Program Flow
+
+You program should do the following:
+
+    Ask the user for their name
+    Ask the user for the file to be read
+    If the user file name provided does not end in ".csv" then your code should add ".csv" to the file name
+     Read the data file line by line to get the individual pieces of data
+    Calculate the pay for each worker
+    Print each employees pay to the console
+    Create a summary report named salarySummary.txt contains
+        Number of Employees
+        Total Payroll
+        Average Pay
+        Maximum Pay
+        Minimum Pay
+    Output a message letting the user know the report was successfully written
+    End the program
+
+Note: You must write a minimum of five (5) user defined functions. Writing a function to get the user name, or print the success message when the file is written, and the like will not count.
