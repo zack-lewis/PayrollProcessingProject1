@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Project1
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -69,7 +69,7 @@ namespace Project1
         }
 
         // Write the summary to a given textfile. 
-        private static void writeSummary(string summaryFileName, int count, double total, double average, double max, double min)
+        public static void writeSummary(string summaryFileName, int count, double total, double average, double max, double min)
         {
             using(StreamWriter file = new StreamWriter(summaryFileName)){
                 file.WriteLine("Payroll Summary");
@@ -88,7 +88,7 @@ namespace Project1
         }
 
         // Find the Maximum value out of all values given
-        private static double setMax(params double[] values)
+        public static double setMax(params double[] values)
         {
             double output = Double.NegativeInfinity;
             foreach(double v in values) {
@@ -101,7 +101,7 @@ namespace Project1
         }
 
         // Find the minimum value out of all values given
-        private static double setMin(params double[] values)
+        public static double setMin(params double[] values)
         {
             double output = Double.PositiveInfinity;
             foreach(double v in values) {
@@ -114,7 +114,7 @@ namespace Project1
         }
 
         // Prompt user for input filename. Optionally, you can disable the existance check when calling recursively 
-        private static string getInputFile(bool checkExists = true) {
+        public static string getInputFile(bool checkExists = true) {
             string userInput;
             string output;
             string intermediate;
@@ -131,7 +131,7 @@ namespace Project1
                 intermediate = "payroll.csv";
             }
             else {
-                intermediate = checkFileExtention(userInput);
+                intermediate = checkFileExtension(userInput);
             }
             
             if(checkExists){
@@ -151,7 +151,7 @@ namespace Project1
         }
 
         // Log error. Currently, this gives the user output on the console with bright colors to draw attention. In future, could get adjusted to log to file. 
-        private static void errorLog(string input)
+        public static void errorLog(string input)
         {         
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -163,7 +163,7 @@ namespace Project1
         }
 
         // Ensure file has proper extension on it. If not, add the extension
-        private static string checkFileExtention(string input)
+        public static string checkFileExtension(string input)
         {
             string output;
             if (input.EndsWith(".csv")){
@@ -177,7 +177,7 @@ namespace Project1
         }
 
         // Check if file exists on filesystem in current folder
-        private static bool checkFileExists(string input)
+        public static bool checkFileExists(string input)
         {
             bool output;
             if(File.Exists(input)) {
@@ -191,7 +191,7 @@ namespace Project1
         }
 
         // Get username and welcome user
-        private static void welcomeUser()
+        public static void welcomeUser()
         {
             int w = Console.WindowWidth;
             string userName = "";
