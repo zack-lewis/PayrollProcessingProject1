@@ -1,0 +1,7 @@
+Payroll Summary
+---------------
+Number of Employees: 30
+Total Payouts: $17,403.00
+Average Payout: $580.10
+Maximum Payout: $1,091.72
+Minimum Payout: $201.11

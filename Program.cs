@@ -191,8 +191,15 @@ namespace Project1
             for(int i = 0; i < ((w/2) - welcomeMessage.Length); i++) {
                 prettyfier += "-";
             }
-            Console.WriteLine("Please enter your name: ");
-            userName = Console.ReadLine();
+
+            while(userName == "") {
+                Console.WriteLine("Please enter your name: ");
+                userName = Console.ReadLine();
+                if(userName == null){
+                    userName = "";
+                }
+            }
+            
 
             Console.WriteLine($"{prettyfier} {welcomeMessage} {prettyfier}");
             Console.WriteLine($"Welcome {userName}!\n");
