@@ -8,13 +8,14 @@ namespace Project1
     {
         static void Main(string[] args)
         {
+            // Clear console for better UI experience
             Console.Clear();
 
             string inFile = "";
             List<Employee> employees = new List<Employee>();
             double average = 0;
             double total = 0;
-            double max = 0;
+            double max = Double.NegativeInfinity;
             double min = Double.PositiveInfinity;
             string summaryFileName = "salarySummary.txt";
 
@@ -39,7 +40,7 @@ namespace Project1
                 Console.WriteLine(ex.Message);
             }
             
-            //     Print each employees pay to the console
+            //     Print each employees pay to the console and calculate stats
             foreach(Employee e in employees) {
                 Console.WriteLine($"{e.firstName} {e.lastName}: {e.getPaycheckAmount().ToString("C2")}");
                 total += e.getPaycheckAmount();
@@ -67,6 +68,7 @@ namespace Project1
             //     End the program
         }
 
+        // Write the summary to a given textfile. 
         private static void writeSummary(string summaryFileName, int count, double total, double average, double max, double min)
         {
             using(StreamWriter file = new StreamWriter(summaryFileName)){
@@ -85,9 +87,10 @@ namespace Project1
             }
         }
 
+        // Find the Maximum value out of all values given
         private static double setMax(params double[] values)
         {
-            double output = 0;
+            double output = Double.NegativeInfinity;
             foreach(double v in values) {
                 if(v > output){
                     output = v;
@@ -97,6 +100,7 @@ namespace Project1
             return output;
         }
 
+        // Find the minimum value out of all values given
         private static double setMin(params double[] values)
         {
             double output = Double.PositiveInfinity;
@@ -109,6 +113,7 @@ namespace Project1
             return output;
         }
 
+        // Prompt user for input filename. Optionally, you can disable the existance check when calling recursively 
         private static string getInputFile(bool checkExists = true) {
             string userInput;
             string output;
@@ -145,6 +150,7 @@ namespace Project1
             return output;
         }
 
+        // Log error. Currently, this gives the user output on the console with bright colors to draw attention. In future, could get adjusted to log to file. 
         private static void errorLog(string input)
         {         
             Console.BackgroundColor = ConsoleColor.DarkYellow;
@@ -156,6 +162,7 @@ namespace Project1
             Console.WriteLine();
         }
 
+        // Ensure file has proper extension on it. If not, add the extension
         private static string checkFileExtention(string input)
         {
             string output;
@@ -169,6 +176,7 @@ namespace Project1
             return output;
         }
 
+        // Check if file exists on filesystem in current folder
         private static bool checkFileExists(string input)
         {
             bool output;
@@ -182,6 +190,7 @@ namespace Project1
             return output;
         }
 
+        // Get username and welcome user
         private static void welcomeUser()
         {
             int w = Console.WindowWidth;
